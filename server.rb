@@ -23,9 +23,11 @@ MAGICAL_CREATURES = [
   }
 ]
 
-# You may define your routes here. Start with the root path, and designate an appropriately named erb template!
+get "/" do
+  erb :home
+end
 
-# Example:
-# get "/wizards" do
-#   erb :wizards
-# end
+get "/creatures" do
+  @creatures_list = ""
+  erb :creatures
+end
