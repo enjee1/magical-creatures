@@ -7,17 +7,17 @@ set :bind, '0.0.0.0'  # bind to all interfaces
 # The MAGICAL_CREATURES variable is an array of hashes, and can be accessed from an of your routes.
 MAGICAL_CREATURES = [
   {
-    name: "unicorn",
+    name: "Unicorn",
     ability: "Its horn is said to have the power to render poisoned water potable and heal sickness.",
     age: 140
   },
   {
-    name: "dragon",
+    name: "Dragon",
     ability: "Breathes fire and has a hide of scales that is near impenetrable.",
     age: 587
   },
   {
-    name: "phoenix",
+    name: "Phoenix",
     ability: "When it is old and weary, its body ignites in flame and it arises anew from the ashes of its predecessor.",
     age: nil
   }
@@ -33,7 +33,10 @@ get "/creatures" do
 end
 
 get "/creatures/:name" do
-  @creature_name = params[:name]
+  @selected_creature = MAGICAL_CREATURES.find do |creature|
+    creature[:name] == params[:name]
+  end
+
   @creature_stats = ""
   erb :creature_info
 end
