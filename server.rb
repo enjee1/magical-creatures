@@ -31,3 +31,9 @@ get "/creatures" do
   @creatures_list = ""
   erb :creatures
 end
+
+get "/creatures/:name" do
+  @creature_name = params[:name]
+  @creature_stats = ""
+  erb :creature_info
+end

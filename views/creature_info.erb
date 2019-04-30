@@ -1,0 +1,11 @@
+
+<% creature_profile = MAGICAL_CREATURES.select { |creature| creature[:name] == @creature_name } %>
+<% @creature_stats += "Name: #{creature_profile[0][:name]}" + "<br>" %>
+<% @creature_stats += "Ability: #{creature_profile[0][:ability]}" + "<br>" %>
+  <% if creature_profile[0][:age].nil? %>
+    <% @creature_stats += "Age: Inifinte" + "<br>" %>
+  <% else %>
+    <% @creature_stats += "Age: #{creature_profile[0][:age]}" + "<br>" %>
+  <% end %>
+
+<%= @creature_stats %>
