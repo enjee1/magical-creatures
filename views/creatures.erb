@@ -1,0 +1,14 @@
+
+
+<% MAGICAL_CREATURES.each do |creature| %>
+  <% @creatures_list += "Name: #{creature[:name]} " + "<br>" %>
+  <% @creatures_list += "Ability: #{creature[:ability]} " + "<br>" %>
+    <% if !creature[:age] == nil? %>
+      <% @creatures_list += "Age: #{creature[:age]} " + "<br>" %>
+    <% else %>
+      <% @creatures_list += "Age: Infinite " + "<br>" %>
+    <% end %>
+<% end %>
+
+
+<%= @creatures_list %>
